@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Statistika</title>
+    <link rel="stylesheet" href="stylestat.css">
+</head>
+
+<body>
+    <div class="header">
+        <nav>
+            <h1>WEB ASSIGNMENT</h1>
+            <ul class="mainMenu">
+                <li><a href="index.html">About Me</a></li>
+                <li><a  href="#" class="disconnect">WebAssign</a>
+                    <ul class="subMenu">
+                        <li><a href="statistika.html">Statistika</a></li>
+                        <li><a href="#">Soon</a></li>
+                    </ul>
+                </li>
+                <li><a href="#pend">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>        
+        </nav>
+    </div>
+ 
+    <div class="container">
+        <div class="content cf">      
+            <div class="main">
+                <p class="head">STATISTIKA</p>
+                <h3>Program kalkulator untuk menghitung nilai mean, median, tertinggi dan terendah</h3>
+                <p class="subhead">Mean atau nilai rata-rata</p>
+                <h3>Mean adalah rata-rata matematika sederhana dari sekumpulan dua atau lebih bilangan. 
+                    Mean menunjukkan distribusi nilai yang sama untuk kumpulan data tertentu. 
+                    Untuk menghitung mean, kamu perlu menambahkan nilai total yang diberikan dalam data 
+                    dan kemudian membagi jumlahnya dengan jumlah nilai total.</h3>
+                <p class="subhead">Median atau nilai tengah</p>
+                <h3>Median adalah nilai tengah setelah data diurutkan. Median adalah suatu nilai 
+                    yang membagi data menjadi dua bagian yang sama banyaknya setelah data tersebut 
+                    diurutkan dari yang terkecil sampai yang terbesar.</h3>
+                <p class="kalkulator">Kalkulator</p>
+                <h3>Masukkan nilai untuk menghitung nilai mean, median, tertinggi dan terendah</h3>
+            
+
+                <form>
+                    <label>Nilai-1 : </label>
+                    <input type="number" name="" id="firstNum" /> <br/>
+                    <label>Nilai-2 : </label>
+                    <input type="number" name="" id="secondNum" /> <br/>
+                    <label>Nilai-3 : </label>
+                    <input type="number" name="" id="thirdNum" /> <br/>   
+                
+                    <input type="button" onclick="hitung()" value="Hitung">
+                    <input type="button" onclick="hapus()" value="Hapus">
+                </form>
+
+                <br/> <label > Nilai Rata-Rata :</label>
+                <label id="rata_rata"></label>
+
+                <br/> <label > Nilai Tengah :</label>
+                <label id="mediann"></label>
+
+                <br/> <label > Nilai Tertinggi :</label>
+                <label id="maksimum"></label>
+
+                <br/> <label > Nilai Terendah :</label>
+                <label id="minimum"></label>
+                
+
+            </div> 
+        </div>
+    </div>
+
+           
+    <div class="penutup">
+        <h3>CONTACT</h3>
+        <div class="medsos">
+            <div class="icon">
+                <ul>
+                    <li><a href="https://www.facebook.com/debi.ramadhana/"><img src="img/fb.png" alt="Facebook"></a></li>
+                    <li><a href="https://www.instagram.com/debirizk/"><img src="img/ig.png" alt="Instagram"></a></li>
+                    <li><a href="https://in.pinterest.com/debiramadhana/"><img src="img/pin.png" alt="Pinterest"></a></li>
+                    <li><a href="https://wa.me/085235250080"><img src="img/wa.png" alt="Whatsapp"></a></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        function InputData(datautama){
+            var A = parseFloat(document.getElementById("firstNum").value)
+            var B = parseFloat(document.getElementById("secondNum").value)
+            var C = parseFloat(document.getElementById("thirdNum").value)
+            var datautama = [A, B, C]
+            return datautama;
+        }
+
+        function bubbleSortAsc(data, jumlah){
+            for(var i=0; i<jumlah-1; i++){
+                for(var j=0; j<jumlah-1; j++){
+                  //jika data index x+1 lebih kecil dari data index x
+                  if(data[j+1]<data[j]){
+                    //tampung data index x ke temp
+                    var temp=data[j];
+                    //ubah data index x menjadi data index x+1
+                    data[j]=data[j+1];
+                    //ubah data index x+1 menjadi data temp
+                    data[j+1]=temp;
+                  }
+                }
+              }
+          }
+
+        function ratarata(){
+            var data = InputData(data)
+            var total = 0;
+            for(var i=0; i<data.length; i++){
+                total += data[i]
+                var hasilRata = total / data.length;
+            }
+
+            document.getElementById("rata_rata").innerHTML = hasilRata.toFixed(2);
+        }
+
+        function median(){
+            var data = InputData(data)
+            var jumlah = data.length
+            var hasilmedian
+            
+            bubbleSortAsc(data, jumlah)
+
+            if(jumlah % 2 == 1){
+                hasilmedian = data[Number((jumlah/2)-0.5)];
+              } 
+            else{
+                hasilmedian =(data[jumlah/2]+data[(jumlah+1)/2])/2;
+              } 
+
+            document.getElementById("mediann").innerHTML = hasilmedian;
+        }
+
+        function minmax(){
+            var data = InputData(data)
+            var jumlah = data.length
+            var hasilmedian
+            
+            bubbleSortAsc(data, jumlah)
+
+            document.getElementById("maksimum").innerHTML = data[Number(jumlah-1)];
+            document.getElementById("minimum").innerHTML = data[0];
+        }
+
+        function hitung(){
+            ratarata() 
+            median()
+            minmax()
+        }
+
+        function hapus() {
+            document.getElementById("firstNum").value = "";
+            document.getElementById("secondNum").value = "";
+            document.getElementById("thirdNum").value = "";
+            location.reload()
+        }
+
+
+
+    </script>
+</body>
+</html>
