@@ -149,7 +149,7 @@ nav .disconnection{
 
 .tabel table {
     font: 17px/30px Verdana, Arial, Helvetica, sans-serif;
-    border-collapse: collapse; width: 520px;
+    border-collapse: collapse; width: 960px;
 }
 .tabel table th {
     padding: 0 0.5em; 
@@ -177,7 +177,7 @@ nav .disconnection{
     border-top: 1px solid #777;
 }
 .tabel label {
-    width: 150px; float: left; margin-top: 3px; 
+    width: 150px; margin-top: 3px; 
     display: inline-block;
 }
 .tabel #pesan {
