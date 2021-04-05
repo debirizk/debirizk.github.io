@@ -17,10 +17,12 @@ $(document).ready(function(){
                     var positif = data.confirmed;
                     var sembuh = data.recovered;
                     var meninggal = data.deaths;
+                    var lastUpdate = data.lastUpdate;
 
                     $('#data-positif').html(positif.value);
                     $('#data-sembuh').html(sembuh.value);
                     $('#data-meninggal').html(meninggal.value);
+                    $('#last-Update').html(lastUpdate.substring(0,10));
                 }
                 catch{
                     alert('Error');
