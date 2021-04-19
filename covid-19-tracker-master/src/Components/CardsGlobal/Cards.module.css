@@ -1,0 +1,33 @@
+.container {
+  margin: 50px 0px;
+}
+
+.card {
+  margin: 0 2% !important;
+}
+
+.infected {
+  background-color: rgba(255, 102, 102, 0.5) !important;
+  border-bottom: 10px solid rgb(173, 0, 0);
+}
+
+.recovered {
+  background-color: rgba(78, 216, 170, 0.5) !important;
+  border-bottom: 10px solid rgb(49, 156, 147);
+}
+
+.deaths {
+  background-color: rgba(172, 172, 172, 0.5) !important;
+  border-bottom: 10px solid rgb(151, 151, 151);
+}
+
+.active {
+  background-color: rgba(237, 199, 152, 0.5) !important;
+  border-bottom: 10px solid rgba(242, 234, 0, 0.5);
+}
+
+@media (max-width: 770px) {
+  .card {
+    margin: 2% 0 !important;
+  }
+}

@@ -13,7 +13,7 @@ var tabel = document.getElementById('tabel'),
             // Periksa apakah NIM sudah ada
             if (tabel.rows.namedItem(nim.value)) {
                 pesan.textContent = 'Error: Nim sudah terdaftar!';
-                e.preventDefault();
+                
                 return;
             }
  
@@ -64,7 +64,7 @@ var tabel = document.getElementById('tabel'),
                 email: email.value
             });
  
-            e.preventDefault();
+            
         }          
  
         form.addEventListener('submit', tambahBaris, false);                  
