@@ -13,3 +13,4 @@ class student{
 let myStudent= new student('Budi',20060201);
 myStudent.add_Email('budi@gmail.com'); 
 myStudent.getDetails();  
+// coba
